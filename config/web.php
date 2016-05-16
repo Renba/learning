@@ -38,14 +38,18 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+
         ],
-        */
+
+    ],
+    'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
+        ],
     ],
     'params' => $params,
 ];
