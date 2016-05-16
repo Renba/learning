@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use kartik\icons\Icon;
 
 AppAsset::register($this);
 ?>
@@ -33,14 +34,15 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    Icon::map($this, Icon::FA);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Students', 'url' => ['/student/index']],
-            ['label' => 'Subject', 'url' => ['/subject/index']],
+            ['label' => Icon::show('home'). 'Home', 'url' => ['/site/index']],
+            ['label' => Icon::show('users'). 'Estudiantes' , 'url' => ['/student/index']],
+            ['label' => Icon::show('book'). 'Estudiantes', 'url' => ['/subject/index']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
@@ -52,7 +54,10 @@ AppAsset::register($this);
                 . '</li>'
             )
         ],
+        'encodeLabels' => false
+
     ]);
+
     NavBar::end();
     ?>
 

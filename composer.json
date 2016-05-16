@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "johnitvn/yii2-ajaxcrud": "*",
-        "kartik-v/yii2-grid": "@dev"
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-icons": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
