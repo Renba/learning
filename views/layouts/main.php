@@ -40,7 +40,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => Icon::show('home'). 'Home', 'url' => ['/site/index']],
             ['label' => Icon::show('users'). 'Estudiantes' , 'url' => ['/student/index']],
-            ['label' => Icon::show('book'). 'Estudiantes', 'url' => ['/subject/index']],
+            ['label' => Icon::show('book'). 'Materias', 'url' => ['/subject/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]
             ) : (
@@ -71,9 +71,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; Universidad Autonoma de la Yucatán <?= date('Y') ?></p>
     </div>
 </footer>
 
