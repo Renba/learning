@@ -10,6 +10,11 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+use yii\db\Query;
+use yii\data\SqlDataProvider;
+use app\models\Grade;
+
 
 /**
  * StudentController implements the CRUD actions for Student model.
@@ -67,8 +72,13 @@ class StudentController extends Controller
                             Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];    
         }else{
+            $dataProvider = new SqlDataProvider([
+                'sql' => 'SELECT * FROM subjects',
+            ]);
+            $subjects = $dataProvider->getModels();
             return $this->render('view', [
                 'model' => $this->findModel($id),
+                'subjects' => $subjects
             ]);
         }
     }
@@ -251,6 +261,28 @@ class StudentController extends Controller
             return $this->redirect(['index']);
         }
        
+    }
+
+    public function actionQualify(){
+        $request = Yii::$app->request;
+        $id = $request->post()['Student']['id'];
+        $lengthSubjects= count( $request->post()['Subject']);
+        for ($x = 1; $x <= $lengthSubjects; $x++) {
+            $subject_id = $request->post()['Subject'][$x]['subject'];
+            $grade_value = $request->post()['Subject'][$x]['grade'];
+            if($grade= Grade::find()->where(['subject_id' => $subject_id , 'student_id'=> $id])->one()){
+                $grade->grade = $grade_value;
+            }else{
+                $grade= new Grade();
+                $grade->student_id = $id;
+                $grade->subject_id = $subject_id;
+                $grade->grade = $grade_value;
+            }
+            $grade->save();
+
+        }
+
+        return $this->redirect('view?id='.$id);
     }
 
     /**

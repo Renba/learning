@@ -1,18 +1,48 @@
 <?php
 
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
+use app\models\Subject;
+use yii\helpers\Html;
+use app\models\Grade;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Student */
 ?>
 <div class="student-view">
- 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-        ],
-    ]) ?>
 
+
+   <div>
+           <div class="col-sm-6">
+           <?php $form = ActiveForm::begin(['action' => "qualify"]); ?>
+               <?php foreach($subjects as $sub){
+                 ?>
+               <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
+               <label for=""><?= $sub["name"]?></label>
+
+               <input type="hidden" id="student-grade-id" class="form-control" name="Subject[<?=$sub["id"]?>][subject]" value="<?= $sub["id"] ?>">
+
+               <select id="student-name" class="form-control" name="Subject[<?= $sub["id"] ?>][grade]">
+                   <option value="0">Aprobado</option>
+                   <option value="1">Reprobado</option>
+                   <option value="2">No cursado</option>
+               </select>
+
+               <?php } ?>
+
+               <?php if (!Yii::$app->request->isAjax){ ?>
+                   <div class="form-group">
+                       <?= Html::submitButton('Calificar',
+                           [
+                               'class' => 'btn btn-success',
+                               'data-confirm' => 'Estás seguro que quiere calendarizar está solicitud?',
+                           ]) ?>
+                   </div>
+               <?php } ?>
+               <?php ActiveForm::end(); ?>
+           </div>
+
+
+   </div>
 </div>

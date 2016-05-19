@@ -85,10 +85,13 @@ INSERT INTO `subjects` (`id`, `name`, `codename`) VALUES
 (15, 'Analisis Numerico II', 'ana_num2'),
 (16, 'Ecs. Diferenciales II', 'ecs_dif2'),
 (17, 'Inf. Estadastica', 'inf_est');
+<<<<<<< Updated upstream
 
 --
 -- Índices para tablas volcadas
 --
+=======
+>>>>>>> Stashed changes
 
 --
 -- Indices de la tabla `grades`
