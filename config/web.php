@@ -44,14 +44,24 @@ $config = [
             'showScriptName' => false,
 
         ],
-
+	'view' => [
+'theme' => [
+'pathMap' => ['@app/views' => '@app/themes/h2o'],
+'baseUrl' => '@web/../themes/h2o',
+],
+],
     ],
+	
+
+	
     'modules' => [
         'gridview' => [
             'class' => '\kartik\grid\Module',
         ],
     ],
     'params' => $params,
+	
+
 ];
 
 if (YII_ENV_DEV) {
