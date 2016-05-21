@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => Icon::show('home'). 'Home', 'url' => ['/site/']],
             ['label' => Icon::show('users'). 'Estudiantes' , 'url' => ['/student/']],
             ['label' => Icon::show('book'). 'Materias', 'url' => ['/subject/']],
+            ['label' => Icon::show('pencil'). 'Resultados', 'url' => ['/grade/']],
             ['label' => Icon::show('list'). 'Reportes', 'url' => ['/report/']],
             Yii::$app->user->isGuest ? (
                 ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]

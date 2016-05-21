@@ -18,7 +18,7 @@ class Subject extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'subjects';
+        return 'subject';
     }
 
     /**
