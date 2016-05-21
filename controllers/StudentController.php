@@ -109,7 +109,16 @@ class StudentController extends Controller
                                 Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
         
                 ];         
-            }else if($model->load($request->post()) && $model->save()){
+            }else if($model->load($request->post())){
+                // primero se crea su usuario para que no haya error con la base de datos
+                $username = $model->name;
+                $password_hash = Yii::$app->getSecurity()->generatePasswordHash($username);
+                $userSql = "INSERT INTO users(username, password_hash) VALUES ('$username', '$password_hash')";
+                $queryUsers = Yii::$app->db->createCommand($userSql)->execute();
+
+                if($queryUsers){
+                    $model->save();
+                }   
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> "Create new Student",

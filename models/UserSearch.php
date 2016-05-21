@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Student;
+use app\models\User;
 
 /**
- * StudentSearch represents the model behind the search form about `app\models\Student`.
+ * UserSearch represents the model behind the search form about `app\models\User`.
  */
-class StudentSearch extends Student
+class UserSearch extends User
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class StudentSearch extends Student
     public function rules()
     {
         return [
-            [['user_id'], 'integer'],
-            [['name'], 'safe'],
+            [['id'], 'integer'],
+            [['username', 'password_hash', 'auth_key', 'access_token'], 'safe'],
         ];
     }
 
@@ -41,7 +41,9 @@ class StudentSearch extends Student
      */
     public function search($params)
     {
-        $query = Student::find();
+        $query = User::find();
+
+        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -55,11 +57,15 @@ class StudentSearch extends Student
             return $dataProvider;
         }
 
+        // grid filtering conditions
         $query->andFilterWhere([
-            'user_id' => $this->user_id,
+            'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'username', $this->username])
+            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
+            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
+            ->andFilterWhere(['like', 'access_token', $this->access_token]);
 
         return $dataProvider;
     }

@@ -16,10 +16,6 @@ use app\models\Student;
 
     <?= $form->field($model, 'subject_id')->dropDownList(ArrayHelper::map(Subject::find()->all(),'id','name'),array('prompt'=>'')) ?>
 
-    <?= $form->field($model, 'subject_id')->dropDownList(ArrayHelper::map(Subject::find()->all(),'id','name'),array('prompt'=>'')) ?>
-
-    <?= $form->field($model, 'grade')->textInput() ?>
-
     <?php echo $form->field($model, 'grade')->dropDownList(['0' => 'Aprobado', '1' => 'Reprobado', '2' => 'No cursado']); ?>
 
     <?php if (!Yii::$app->request->isAjax){ ?>

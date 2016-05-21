@@ -45,4 +45,19 @@ class Grade extends \yii\db\ActiveRecord
             'grade' => Yii::t('app', 'Grade'),
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getStudent()
+    {
+        return $this->hasOne(Student::className(), ['user_id' => 'student_id']);
+    }
+
+    public function beforeSave(){
+        if($this->student_id == null){
+            $this->student_id = Yii::$app->user->identity->id;
+        }
+        return true;
+    }
 }
