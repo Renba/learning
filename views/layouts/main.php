@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Tutor App',
+        'brandLabel' => Icon::show('home').'Tutor App',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,11 +38,10 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => Icon::show('home'). 'Home', 'url' => ['/site/']],
             ['label' => Icon::show('users'). 'Estudiantes' , 'url' => ['/student/']],
             ['label' => Icon::show('book'). 'Materias', 'url' => ['/subject/']],
-            ['label' => Icon::show('pencil'). 'Resultados', 'url' => ['/grade/']],
-            ['label' => Icon::show('list'). 'Reportes', 'url' => ['/report/']],
+            ['label' => Icon::show('pencil'). 'Grades', 'url' => ['/grade/']],
+            ['label' => Icon::show('file-text'). 'Reportes', 'url' => ['/report/']],
             Yii::$app->user->isGuest ? (
                 ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]
             ) : (
@@ -57,9 +56,7 @@ AppAsset::register($this);
             )
         ],
         'encodeLabels' => false
-
     ]);
-
     NavBar::end();
     ?>
 

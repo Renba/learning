@@ -37,7 +37,7 @@ class Student extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
+            'user_id' => Yii::t('app', 'User Id'),
             'name' => Yii::t('app', 'Name'),
         ];
     }
