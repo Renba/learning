@@ -73,7 +73,7 @@ class StudentController extends Controller
                 ];    
         }else{
             $dataProvider = new SqlDataProvider([
-                'sql' => 'SELECT * FROM subjects',
+                'sql' => 'SELECT * FROM subject',
             ]);
             $subjects = $dataProvider->getModels();
             return $this->render('view', [
@@ -274,7 +274,7 @@ class StudentController extends Controller
 
     public function actionQualify(){
         $request = Yii::$app->request;
-        $id = $request->post()['Student']['id'];
+        $id = $request->post()['Student']['user_id'];
         $lengthSubjects= count( $request->post()['Subject']);
         for ($x = 1; $x <= $lengthSubjects; $x++) {
             $subject_id = $request->post()['Subject'][$x]['subject'];

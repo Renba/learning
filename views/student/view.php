@@ -16,20 +16,24 @@ use app\models\Grade;
    <div>
            <div class="col-sm-6">
            <?php $form = ActiveForm::begin(['action' => "qualify"]); ?>
-               <?php foreach($subjects as $sub){
+               <?php
+               $index = 1;
+               foreach($subjects as $sub){
                  ?>
-               <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
+               <?= $form->field($model, 'user_id')->hiddenInput(['value'=> $model->user_id])->label(false) ?>
                <label for=""><?= $sub["name"]?></label>
 
-               <input type="hidden" id="student-grade-id" class="form-control" name="Subject[<?=$sub["id"]?>][subject]" value="<?= $sub["id"] ?>">
+               <input type="hidden" id="student-grade-id" class="form-control" name="Subject[<?=$index?>][subject]" value="<?= $sub["id"] ?>">
 
-               <select id="student-name" class="form-control" name="Subject[<?= $sub["id"] ?>][grade]">
+               <select id="student-name" class="form-control" name="Subject[<?= $index ?>][grade]">
                    <option value="0">Aprobado</option>
                    <option value="1">Reprobado</option>
                    <option value="2">No cursado</option>
                </select>
 
-               <?php } ?>
+               <?php
+                   $index ++;
+               } ?>
 
                <?php if (!Yii::$app->request->isAjax){ ?>
                    <div class="form-group">
@@ -39,7 +43,8 @@ use app\models\Grade;
                                'data-confirm' => 'Estás seguro que quiere calendarizar está solicitud?',
                            ]) ?>
                    </div>
-               <?php } ?>
+               <?php
+               } ?>
                <?php ActiveForm::end(); ?>
            </div>
 

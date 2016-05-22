@@ -86,23 +86,23 @@ CREATE TABLE IF NOT EXISTS `subject` (
 --
 
 INSERT INTO `subject` (`id`, `name`, `codename`) VALUES
-(1, 'Algebra Superior 1', 'alg_sup1'),
-(2, 'Calculo 1', 'calc1'),
-(3, 'Computacion 1', 'comp1'),
-(4, 'Geometria Analitica', 'geo_ana'),
-(5, 'Algebra Superior 2', 'alg_sup2'),
-(6, 'Calculo 2', 'calc2'),
-(7, 'Computacion 2', 'comp2'),
-(8, 'Geometria Moderna', 'geo_mod'),
-(9, 'Algebra Lineal I', 'alg_lin1'),
-(10, 'Calculo III', 'calc3'),
-(11, 'Analisis Numerico I', 'ana_num1'),
-(12, 'Ecs. Diferenciales I', 'ecs_dif1'),
-(13, 'Probabilidad', 'proba'),
-(14, 'Algebra Lineal II', 'alg_lin2'),
-(15, 'Analisis Numerico II', 'ana_num2'),
-(16, 'Ecs. Diferenciales II', 'ecs_dif2'),
-(17, 'Inf. Estadastica', 'inf_est');
+('Algebra Superior 1', 'alg_sup1'),
+('Calculo 1', 'calc1'),
+('Computacion 1', 'comp1'),
+('Geometria Analitica', 'geo_ana'),
+('Algebra Superior 2', 'alg_sup2'),
+('Calculo 2', 'calc2'),
+('Computacion 2', 'comp2'),
+('Geometria Moderna', 'geo_mod'),
+('Algebra Lineal I', 'alg_lin1'),
+('Calculo III', 'calc3'),
+('Analisis Numerico I', 'ana_num1'),
+('Ecs. Diferenciales I', 'ecs_dif1'),
+('Probabilidad', 'proba'),
+('Algebra Lineal II', 'alg_lin2'),
+('Analisis Numerico II', 'ana_num2'),
+('Ecs. Diferenciales II', 'ecs_dif2'),
+('Inf. Estadastica', 'inf_est');
 <<<<<<< Updated upstream
 
 -- --------------------------------------------------------
