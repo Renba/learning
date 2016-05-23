@@ -18,7 +18,7 @@ class ReportController extends Controller{
 	      	header('Content-Disposition: attachment; filename='.$titulo.'.arff');
 	      	$output = fopen('php://output', 'w');
 	      
-	      	$textoInicio = "@relation datos\n\n@attribute student real\n";
+	      	$textoInicio = "@relation datos\n\n";
 	      	fwrite($output, $textoInicio);
 
 		    $rows = Subject::find()->all();
@@ -31,7 +31,7 @@ class ReportController extends Controller{
 		      	$atributosMateria = "@attribute ".$materia." {'".$materiaA."', '".$materiaR."', '".$materiaN."'}\n";
 		      	fwrite($output, $atributosMateria);
 		    }
-		    fwrite($output, "\n\n@data\n");
+		    fwrite($output, "\n@data\n");
 
 		    $estudiantes = Student::find()->all();
 		    foreach ($estudiantes as $estudiante) {

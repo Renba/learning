@@ -17,14 +17,24 @@ return [
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'subject_id',
+        'label' => 'Materia',
+        'value' => 'subject.name',
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'student_id',
+        'label' => 'Estudiante',
+        'value' => 'student.name',
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'grade',
+        'label' => 'Calificación',
+        'value' => function($dataProvider){
+            if($dataProvider['grade'] == '0') return 'Aprobado';
+            if($dataProvider['grade'] == '1') return 'Reprobado';
+            if($dataProvider['grade'] == '2') return 'No cursado';
+        }
     ],
     [
         'class' => 'kartik\grid\ActionColumn',
