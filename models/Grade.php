@@ -45,6 +45,14 @@ class Grade extends \yii\db\ActiveRecord
             'grade' => Yii::t('app', 'Grade'),
         ];
     }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSubject()
+    {
+        return $this->hasOne(Subject::className(), ['id' => 'subject_id']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery

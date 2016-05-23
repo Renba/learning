@@ -54,6 +54,8 @@ class GradeSearch extends Grade
             return $dataProvider;
         }
 
+        $query->joinWith(['subject', 'student']);
+
         $query->andFilterWhere([
             'id' => $this->id,
             'subject_id' => $this->subject_id,
