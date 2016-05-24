@@ -69,6 +69,9 @@ AppAsset::register($this);
 </div>
 </div>
     <div id="footer">
+	<span>
+	
+	© Todos los Derechos Reservados, UADY 2016 Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica, de otro forma requiere permiso previo por escrito de la institución. </span>
 </div>
   </div>
 </div>
