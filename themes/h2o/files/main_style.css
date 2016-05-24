@@ -12,18 +12,26 @@
  h1 { font-size: 24px; color: #273b4a; padding: .5em 0 .2em 0; }
  h2 { font-size: 20px; color: #273b4a; padding: .5em 0 .2em 0; }
  blockquote { font-style:italic; border-left:4px solid #ccc; margin:10px 0 10px 0; padding-left:20px; line-height:1.5; color:#666; }
- #wrapper { padding: 0 0 33px 0; background: url(theme/wrapperbg.jpg?705099) center repeat-y; }
+ #wrapper { 
+ padding: 0 0 33px 0; 
+ background-color:#00234E;
+ /*background: url(theme/wrapperbg.jpg?705099) center repeat-y;*/
+ }
  #container { width: 960px; margin: 0 auto; }
  .splash-page #container { width: 600px; margin: 0 auto; }
  #header, #header a { color: #4984c9; margin: 0; padding: 0; text-decoration: none; }
  #header a:hover { color: #84afe1; }
  #logo, #logo a { color: #fff; font-size: 30px; }
  #banner { width: 960px; margin: 0 0 9px 0; }
- #content { width: 914px; height: auto !important; min-height: 400px; background: #efe8dc; border-bottom: 1px solid #cecece; padding: 20px 23px 20px 23px; }
+ #content { width: 914px; height: auto !important; min-height: 400px; 
+ background: #BF942B; border-bottom: 1px solid #cecece; padding: 20px 23px 20px 23px; }
  #banner a { color: #84afe1; }
  #banner a:hover { color: #4984c9; }
  #content a:hover { color: #569def; }
- #navigation { position: relative; width: 960px; height: 47px; z-index: 2; margin: 0 0 0 0; background: url(theme/navigationbg.jpg?705099) top repeat-x; }
+ #navigation { position: relative; width: 960px; height: 47px; z-index: 2; margin: 0 0 0 0; 
+ /*background: url(theme/navigationbg.jpg?705099) top repeat-x;*/
+background-color:#BF942B;
+ }
  #navigation li { float: left; z-index: 2; }
  #navigation li a { position: relative; display: block; height: 28px; color: #fff; float: left; z-index: 2; padding: 10px 18px 0 18px; font-size: 14px; text-decoration: none; }
  #navigation li a:hover, #navigation li#active a { color: #0c1b2c; background: #6a95c7; text-decoration: none; }
@@ -75,7 +83,10 @@
  #header-right .wsite-search { vertical-align: middle; margin: 0 0 0 15px; }
  #header-right .wsite-search-input { width: 157px; height: 18px; border: none; padding: 3px 7px 5px 7px; color: #273b4a; font-size: 12px; background: url(theme/input-bg.png?705099) no-repeat; }
  #header-right .wsite-search-button { position: relative; width: 36px; height: 27px; border: none; margin: 0; padding: 0; background: url(theme/submit.png?705099) no-repeat; }
- #footer { width: 910px; font-size: 13px; background: url(theme/footerbg.jpg?705099) repeat-y; padding: 25px 25px 25px 25px; margin: 10px 0 0 0; text-align: right; }
+ #footer { width: 910px; font-size: 13px; 
+ /*background: url(theme/footerbg.jpg?705099) repeat-y;*/
+ padding: 25px 25px 25px 25px; margin: 10px 0 0 0; text-align: right; 
+ background-color: #BF942B;}
  #footer div.paragraph {font-size:12px;}
  #footer p {font-size:12px;}
  #footer, #footer div.paragraph, #footer h1, #footer h2 { color: #ccc; }

@@ -43,14 +43,23 @@ use yii\debug\Toolbar;
     <div id="navigation">
             <?php echo Menu::widget(array(
         'options' => array('class' => 'nav'),
-        'items' => array(
-          array('label' => 'Home', 'url' => array('/site/index')),
-          array('label' => 'About', 'url' => array('/site/about')),
-          array('label' => 'Contact', 'url' => array('/site/contact')),
-          Yii::$app->user->isGuest ?
-            array('label' => 'Login', 'url' => array('/site/login')) :
-            array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/logout')),
-        ),
+       'items' => [
+            ['label' => Icon::show('home'). 'Home', 'url' => ['/site/index']],
+            ['label' => Icon::show('users'). 'Estudiantes' , 'url' => ['/student/index']],
+            ['label' => Icon::show('book'). 'Materias', 'url' => ['/subject/index']],
+            Yii::$app->user->isGuest ? (
+                ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]
+            ) : (
+                '<li>'
+                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link']
+                )
+                . Html::endForm()
+                . '</li>'
+            )
+        ],
       )); ?>
     </div>
     <div id="banner">
@@ -60,7 +69,7 @@ use yii\debug\Toolbar;
       <?php echo $content; ?>
 </div>
 </div>
-    <div id="footer"><?php echo Html::encode(\Yii::$app->name); ?>
+    <div id="footer">
 </div>
   </div>
 </div>

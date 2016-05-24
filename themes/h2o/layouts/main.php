@@ -3,7 +3,12 @@ use yii\helpers\Html;
 use yii\widgets\Menu;
 use yii\widgets\Breadcrumbs;
 use yii\debug\Toolbar;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use app\assets\AppAsset;
+use kartik\icons\Icon;
 
+AppAsset::register($this);
 // You can use the registerAssetBundle function if you'd like
 //$this->registerAssetBundle('app');
 ?>
@@ -28,7 +33,7 @@ use yii\debug\Toolbar;
   <div id="container">
     <table id="header">
       <tr>
-        <td id="logo"><span class='wsite-logo'><a href='/'><span id="wsite-title"><?php echo Html::encode(\Yii::$app->name); ?></span></a></span></td>
+        <td id="logo"><span class='wsite-logo'><a href='/'><span id="wsite-title">Universidad Autónoma de Yucatán</span></a></span></td>
         <td id="header-right">
           <table>
             <tr>
@@ -47,9 +52,12 @@ use yii\debug\Toolbar;
           array('label' => 'Home', 'url' => array('/site/index')),
           array('label' => 'About', 'url' => array('/site/about')),
           array('label' => 'Contact', 'url' => array('/site/contact')),
+		     array('label' => 'Estudiantes', 'url' => array('/student/index')),
+          array('label' => 'Materias', 'url' => array('/subject/index')),
+        
           Yii::$app->user->isGuest ?
             array('label' => 'Login', 'url' => array('/site/login')) :
-            array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/logout')),
+            array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/index')),
         ),
       )); ?>
     </div>
@@ -60,12 +68,11 @@ use yii\debug\Toolbar;
       <?php echo $content; ?>
 </div>
 </div>
-    <div id="footer"><?php echo Html::encode(\Yii::$app->name); ?>
+    <div id="footer">
 </div>
   </div>
 </div>
 
-<?php $this->endBody(); ?>
+
 </body>
 </html>
-<?php $this->endPage(); ?>

@@ -7,7 +7,7 @@ $this->title = 'Tutor App';
 <div class="site-index">
     <div class="row">
         <div class="col-sm-12">
-            aaa
+            
         </div>
     </div>
 </div>
