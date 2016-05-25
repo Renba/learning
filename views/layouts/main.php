@@ -36,12 +36,23 @@ AppAsset::register($this);
     ]);
     Icon::map($this, Icon::FA);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-rigght'],
         'items' => [
-            ['label' => Icon::show('users'). 'Estudiantes' , 'url' => ['/student/']],
-            ['label' => Icon::show('book'). 'Materias', 'url' => ['/subject/']],
-            ['label' => Icon::show('pencil'). 'Grades', 'url' => ['/grade/']],
-            ['label' => Icon::show('file-text'). 'Reportes', 'url' => ['/report/']],
+            ['label' => Icon::show('users'). 'Estudiantes', 
+                'url' => ['/student/'],
+            ],
+            ['label' => Icon::show('book'). 'Materias',
+                'url' => ['/subject/'],
+                'visible' => Yii::$app->user->id == 1,
+            ],
+            ['label' => Icon::show('pencil'). 'Grades',
+                'url' => ['/grade/'],
+                'visible' => Yii::$app->user->id == 1,
+            ],
+            ['label' => Icon::show('file-text'). 'Reportes',
+                'url' => ['/report/'],
+                'visible' => Yii::$app->user->id == 1,
+            ],
             Yii::$app->user->isGuest ? (
                 ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]
             ) : (
