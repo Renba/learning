@@ -8,6 +8,7 @@ use app\models\SubjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use \yii\web\Response;
 use yii\helpers\Html;
 
@@ -22,12 +23,18 @@ class SubjectController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulk-delete' => ['post'],
-                ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['view', 'update', 'create', 'delete'],
+                'rules' =>  [
+                    [
+                        'allow' => true,
+                        'actions' => ['view', 'update', 'create', 'delete'],
+                        'matchCallback' => function($rule, $action){
+                            return Yii::$app->user->id == 1;
+                        }
+                    ],
+                ],   
             ],
         ];
     }

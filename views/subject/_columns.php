@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 return [
     [
@@ -24,11 +25,49 @@ return [
     ],
     [
         'class' => 'kartik\grid\ActionColumn',
+        'template' => '{view} {update} {delete} {predict}',
+        'buttons' => [
+            'view' => function ($url, $model) {
+                if(Yii::$app->user->id == 1){
+                    return Html::a('<span class="fa fa-search"></span>', $url,
+                        [
+                                'role'=>'modal-remote',
+                                'title'=>'View',
+                                'data-toggle'=>'tooltip'                                  
+                        ]);                    
+                }
+            },
+            'update' => function ($url, $model) {
+                if(Yii::$app->user->id == 1){
+                    return Html::a('<span class="fa fa-pencil"></span>', $url,
+                        [
+                                'role'=>'modal-remote',
+                                'title'=>'Update',
+                                'data-toggle'=>'tooltip'                                
+                        ]);                    
+                }
+            },
+            'delete' => function ($url, $model) {
+                if(Yii::$app->user->id == 1){
+                    return Html::a('<span class="fa fa-trash"></span>', $url,
+                        [
+                                'role'=>'modal-remote',
+                                'title'=>'Delete', 
+                                'data-confirm'=>false, 'data-method'=>false,// for overide yii data api
+                                'data-request-method'=>'post',
+                                'data-toggle'=>'tooltip',
+                                'data-confirm-title'=>'¿Estás seguro?',
+                                'data-confirm-message'=>'¿Seguro que deseas eliminar esta materia?'                                  
+                        ]);                    
+                }
+            },
+        ],
         'dropdown' => false,
         'vAlign'=>'middle',
         'urlCreator' => function($action, $model, $key, $index) { 
                 return Url::to([$action,'id'=>$key]);
         },
+        /*
         'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 
@@ -37,6 +76,7 @@ return [
                           'data-toggle'=>'tooltip',
                           'data-confirm-title'=>'Are you sure?',
                           'data-confirm-message'=>'Are you sure want to delete this item'], 
+        */
     ],
 
 ];   
