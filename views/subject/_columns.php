@@ -32,7 +32,7 @@ return [
                 if(Yii::$app->user->id == 1){
                     return Html::a('<span class="fa fa-search"></span>', $url,
                         [
-                            'role'=>'modal-remote',
+                            'role'=>'page',
                             'title'=>'View',
                             'data-toggle'=>'tooltip'
                         ]);
@@ -45,6 +45,7 @@ return [
                             'role'=>'modal-remote',
                             'title'=>'Update',
                             'data-toggle'=>'tooltip'
+                        ]);
                 }
             },
             'delete' => function ($url, $model) {

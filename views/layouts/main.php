@@ -44,6 +44,7 @@ AppAsset::register($this);
             ],
             ['label' => Icon::show('book'). 'Materias',
                 'url' => ['/subject/'],
+                'visible' => !Yii::$app->user->isGuest,
             ],
             ['label' => Icon::show('pencil'). 'Grades',
                 'url' => ['/grade/'],
@@ -55,7 +56,7 @@ AppAsset::register($this);
             ],
             ['label' => Icon::show('book'). 'Calificar Materias',
                 'url' => ['/student/view?id='.Yii::$app->user->id],
-                'visible' => Yii::$app->user->id != 1,
+                'visible' => Yii::$app->user->id == 1 || !Yii::$app->user->isGuest,
             ],
             Yii::$app->user->isGuest ? (
                 ['label' => Icon::show('sign-in').'Login', 'url' => ['/site/login']]

@@ -217,6 +217,7 @@ class SubjectController extends Controller
     {
         $request = Yii::$app->request;
         $id = $request->post()['Subject']['id'];
+        echo $id;
         $result = $request->post()['Result']['result'];
         $tree = $request->post()['Result']['tree'];
         $tree1  = preg_replace('/\s+/', '', $tree);
